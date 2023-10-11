@@ -1,0 +1,20 @@
+create 2 databases in postgreSQL, one called **listingz_users** and one called **listingz_listings**
+
+Then under core/settings.py:
+
+-   find the DATABASES setting, set the PASSWORD field to both your databases password to your postgreSQL user password
+
+Once you have your databases setup, proceed to the following steps:
+
+-   Virtual Enviornment is already present
+-   simply activate the virtual environment: source venv/bin/activate (MacOS) or .\venv\Scripts\activate (Windows)
+
+-   then run the following commands:
+
+-   python manage.py makemigrations
+-   python manage.py migrate user --database=users
+-   python manage.py migrate --database=users
+-   python manage.py migrate listing --database=listings
+-   then run the following to create a superuser:
+-   python manage.py createsuperuser --database=users
+-   then you can run the server by running: python manage.py runserver
